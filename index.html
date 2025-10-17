@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Gianluca — MSc in Business Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="I’m Gianluca. MSc in Business Analytics. I turn data into clear decisions." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Gianluca — MSc in Business Analytics" />
+  <meta property="og:description" content="Gianluca Bavelloni. Nice to meet you. Minimal personal website." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    /* ---------- Root & Theme ---------- */
+    :root {
+      --bg: #f7f7f8;
+      --text: #0a0a0a;
+      --muted: #5f6368;
+      --card: rgba(255,255,255,0.7);
+      --border: rgba(10,10,10,0.08);
+      --accent: #0ea5e9;
+      --accent-strong: #0284c7;
+      --shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0d12;
+        --text: #e6e6e7;
+        --muted: #a6abb3;
+        --card: rgba(17, 22, 30, 0.5);
+        --border: rgba(230,230,231,0.08);
+        --accent: #22d3ee;
+        --accent-strong: #06b6d4;
+        --shadow: 0 10px 30px rgba(0,0,0,.4);
+      }
+    }
+
+    /* ---------- Base ---------- */
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    /* ---------- Canvas Liquid BG ---------- */
+    #liquid {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      filter: blur(30px) saturate(1.15) brightness(1.05);
+      pointer-events: none;
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(14,165,233,0.20), transparent 60%),
+                  radial-gradient(1000px 700px at 110% 10%, rgba(99,102,241,0.18), transparent 60%),
+                  radial-gradient(900px 600px at 50% 120%, rgba(16,185,129,0.14), transparent 60%);
+    }
+
+    /* ---------- Layout ---------- */
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header {
+      position: fixed; inset: 0 0 auto 0; height: 64px;
+      display: flex; align-items: center;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.55), rgba(255,255,255,0.08));
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 50;
+    }
+    @media (prefers-color-scheme: dark) {
+      header { background: linear-gradient(to bottom, rgba(13,17,23,0.55), rgba(13,17,23,0.08)); }
+    }
+    .brand { font-weight: 700; letter-spacing: .2px; }
+    nav { margin-left: auto; display: flex; gap: 22px; }
+    nav a {
+      color: var(--muted);
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: color .2s ease, background .2s ease;
+    }
+    nav a:hover { color: var(--text); background: var(--card); }
+
+    main { padding-top: 64px; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 96px 0; position: relative; }
+    .hero {
+      display: grid; place-items: center;
+      min-height: calc(100svh - 64px);
+      text-align: center;
+      padding: 120px 0 100px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.05;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.02em;
+    }
+    .hero .sub {
+      font-size: clamp(18px, 2.5vw, 28px);
+      color: var(--muted);
+      margin: 0 0 14px 0;
+    }
+    .hero .greeting {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .intro {
+      color: var(--muted);
+      max-width: 720px; margin: 0 auto 28px;
+      font-size: clamp(16px, 2vw, 18px);
+    }
+
+    /* ---------- Profile Photo ---------- */
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 24px;
+      box-shadow: 0 0 25px rgba(14,165,233,0.3);
+      border: 2px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+    .profile-photo:hover {
+      box-shadow: 0 0 35px rgba(99,102,241,0.45);
+    }
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 18px; border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      transition: transform .12s ease, background .2s ease, border-color .2s ease;
+      font-weight: 700; letter-spacing: .2px;
+    }
+    .btn.primary {
+      background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+      color: white; border-color: transparent;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    /* ---------- Misc ---------- */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: clamp(18px, 3vw, 28px);
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+    @media (min-width: 720px) {
+      .grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.5);
+      font-weight: 600;
+      color: var(--text);
+    }
+    @media (prefers-color-scheme: dark) {
+      .tag { background: rgba(255,255,255,0.06); }
+    }
+
+    .contact-links {
+      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+    }
+    .icon {
+      width: 22px; height: 22px; display: inline-block; vertical-align: middle;
+    }
+    .icon path { fill: currentColor; }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: linear-gradient(to top, rgba(255,255,255,0.4), transparent);
+    }
+    @media (prefers-color-scheme: dark) {
+      footer { background: linear-gradient(to top, rgba(13,17,23,0.25), transparent); }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="liquid" aria-hidden="true"></canvas>
+
+  <header role="banner">
+    <div class="container" style="display:flex; align-items:center; gap:22px;">
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="#resume">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="container">
+        <div class="profile-photo">
+          <img src="profile.jpg" alt="Portrait of Gianluca Bavelloni" />
+        </div>
+        <h1>Gianluca Bavelloni</h1>
+        <p class="sub">MSc in Business Analytics at ESADE</p>
+        <p class="greeting">Nice to meet you.</p>
+        <p class="intro">I’m a student graduating in 2026, passionate about technology, finance, and AI innovation.</p>
+        <div class="btns">
+          <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
+          <a class="btn" href="#contact">Contact me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container card">
+        <h2>About</h2>
+        <p>
+          I’m Gianluca, with a background in economics and finance. From financial analysis to applying AI in sales and project management, I’ve focused on developing agile, automated systems that enhance collaboration and drive innovation in the financial sector.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="grid">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">R</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Data Modeling</span>
+          <span class="tag">Forecasting</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Finance Analytics</span>
+          <span class="tag">Dashboards</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container card">
+        <h2>Resume</h2>
+        <p>You can view or download my resume below.</p>
+        <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container card">
+        <h2>Contact</h2>
+        <p>Say hello: <a href="mailto:gianluca.bavelloni@gmail.com">gianluca.bavelloni@gmail.com</a></p>
+        <div class="contact-links">
+          <a href="https://wa.me/393665424379" target="_blank" rel="noopener" aria-label="WhatsApp">💬 WhatsApp</a>
+          <a href="https://github.com/GianlucaBave" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+          <a href="https://www.linkedin.com/in/gianluca-bavelloni/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> — Built by Gianluca</div>
+  </footer>
+
+  <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  (() => {
+    const canvas = document.getElementById('liquid');
+    const ctx = canvas.getContext('2d');
+    let w, h, particles = [], mouse = {x: 0, y: 0};
+    const colors = ['#0ea5e9', '#6366f1', '#10b981'];
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    for (let i = 0; i < 20; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: 80 + Math.random() * 80,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        color: colors[i % colors.length]
+      });
+    }
+
+    document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of particles) {
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const force = Math.max(0, 200 - dist) * 0.003;
+        p.vx += (dx / dist) * force;
+        p.vy += (dy / dist) * force;
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < -200) p.x = w + 200;
+        if (p.x > w + 200) p.x = -200;
+        if (p.y < -200) p.y = h + 200;
+        if (p.y > h + 200) p.y = -200;
+
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+        g.addColorStop(0, p.color + 'cc');
+        g.addColorStop(1, p.color + '00');
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        p.vx *= 0.96;
+        p.vy *= 0.96;
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+</body>
+</html>
