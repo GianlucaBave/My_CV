@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <title>Gianluca — MSc in Business Analytics</title>
@@ -19,28 +20,37 @@
       --bg: #f7f7f8;
       --text: #0a0a0a;
       --muted: #5f6368;
-      --card: rgba(255,255,255,0.7);
-      --border: rgba(10,10,10,0.08);
+      --card: rgba(255, 255, 255, 0.7);
+      --border: rgba(10, 10, 10, 0.08);
       --accent: #0ea5e9;
       --accent-strong: #0284c7;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --shadow: 0 10px 30px rgba(0, 0, 0, .06);
     }
+
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #0b0d12;
         --text: #e6e6e7;
         --muted: #a6abb3;
         --card: rgba(17, 22, 30, 0.5);
-        --border: rgba(230,230,231,0.08);
+        --border: rgba(230, 230, 231, 0.08);
         --accent: #22d3ee;
         --accent-strong: #06b6d4;
-        --shadow: 0 10px 30px rgba(0,0,0,.4);
+        --shadow: 0 10px 30px rgba(0, 0, 0, .4);
       }
     }
 
     /* ---------- Base ---------- */
-    html { scroll-behavior: smooth; }
-    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
@@ -52,8 +62,13 @@
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible, button:focus-visible {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
       border-radius: 8px;
@@ -68,26 +83,46 @@
       z-index: -1;
       filter: blur(30px) saturate(1.15) brightness(1.05);
       pointer-events: none;
-      background: radial-gradient(1200px 800px at 10% -10%, rgba(14,165,233,0.20), transparent 60%),
-                  radial-gradient(1000px 700px at 110% 10%, rgba(99,102,241,0.18), transparent 60%),
-                  radial-gradient(900px 600px at 50% 120%, rgba(16,185,129,0.14), transparent 60%);
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(14, 165, 233, 0.20), transparent 60%),
+        radial-gradient(1000px 700px at 110% 10%, rgba(99, 102, 241, 0.18), transparent 60%),
+        radial-gradient(900px 600px at 50% 120%, rgba(16, 185, 129, 0.14), transparent 60%);
     }
 
     /* ---------- Layout ---------- */
-    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    .container {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+    }
+
     header {
-      position: fixed; inset: 0 0 auto 0; height: 64px;
-      display: flex; align-items: center;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.55), rgba(255,255,255,0.08));
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.08));
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       z-index: 50;
     }
+
     @media (prefers-color-scheme: dark) {
-      header { background: linear-gradient(to bottom, rgba(13,17,23,0.55), rgba(13,17,23,0.08)); }
+      header {
+        background: linear-gradient(to bottom, rgba(13, 17, 23, 0.55), rgba(13, 17, 23, 0.08));
+      }
     }
-    .brand { font-weight: 700; letter-spacing: .2px; }
-    nav { margin-left: auto; display: flex; gap: 22px; }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      gap: 22px;
+    }
+
     nav a {
       color: var(--muted);
       font-weight: 600;
@@ -95,37 +130,53 @@
       border-radius: 10px;
       transition: color .2s ease, background .2s ease;
     }
-    nav a:hover { color: var(--text); background: var(--card); }
 
-    main { padding-top: 64px; }
+    nav a:hover {
+      color: var(--text);
+      background: var(--card);
+    }
+
+    main {
+      padding-top: 64px;
+    }
 
     /* ---------- Sections ---------- */
-    section { padding: 96px 0; position: relative; }
+    section {
+      padding: 96px 0;
+      position: relative;
+    }
+
     .hero {
-      display: grid; place-items: center;
+      display: grid;
+      place-items: center;
       min-height: calc(100svh - 64px);
       text-align: center;
       padding: 120px 0 100px;
     }
+
     .hero h1 {
       font-size: clamp(40px, 6vw, 72px);
       line-height: 1.05;
       margin: 0 0 10px 0;
       letter-spacing: -0.02em;
     }
+
     .hero .sub {
       font-size: clamp(18px, 2.5vw, 28px);
       color: var(--muted);
       margin: 0 0 14px 0;
     }
+
     .hero .greeting {
       font-size: clamp(16px, 2vw, 20px);
       color: var(--muted);
       margin-bottom: 24px;
     }
+
     .intro {
       color: var(--muted);
-      max-width: 720px; margin: 0 auto 28px;
+      max-width: 720px;
+      margin: 0 auto 28px;
       font-size: clamp(16px, 2vw, 18px);
     }
 
@@ -136,13 +187,15 @@
       border-radius: 50%;
       overflow: hidden;
       margin: 0 auto 24px;
-      box-shadow: 0 0 25px rgba(14,165,233,0.3);
+      box-shadow: 0 0 25px rgba(14, 165, 233, 0.3);
       border: 2px solid var(--border);
       transition: box-shadow 0.3s ease;
     }
+
     .profile-photo:hover {
-      box-shadow: 0 0 35px rgba(99,102,241,0.45);
+      box-shadow: 0 0 35px rgba(99, 102, 241, 0.45);
     }
+
     .profile-photo img {
       width: 100%;
       height: 100%;
@@ -151,22 +204,40 @@
     }
 
     /* ---------- Buttons ---------- */
-    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 12px 18px; border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
       border: 1px solid var(--border);
       background: var(--card);
       box-shadow: var(--shadow);
       transition: transform .12s ease, background .2s ease, border-color .2s ease;
-      font-weight: 700; letter-spacing: .2px;
+      font-weight: 700;
+      letter-spacing: .2px;
     }
+
     .btn.primary {
       background: linear-gradient(180deg, var(--accent), var(--accent-strong));
-      color: white; border-color: transparent;
+      color: white;
+      border-color: transparent;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
 
     /* ---------- Misc ---------- */
     .card {
@@ -180,10 +251,13 @@
     .grid {
       display: grid;
       gap: 14px;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
     @media (min-width: 720px) {
-      .grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     .tag {
@@ -191,30 +265,130 @@
       padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.5);
+      background: rgba(255, 255, 255, 0.5);
       font-weight: 600;
       color: var(--text);
     }
+
     @media (prefers-color-scheme: dark) {
-      .tag { background: rgba(255,255,255,0.06); }
+      .tag {
+        background: rgba(255, 255, 255, 0.06);
+      }
     }
 
     .contact-links {
-      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
     }
+
     .icon {
-      width: 22px; height: 22px; display: inline-block; vertical-align: middle;
+      width: 22px;
+      height: 22px;
+      display: inline-block;
+      vertical-align: middle;
     }
-    .icon path { fill: currentColor; }
+
+    .icon path {
+      fill: currentColor;
+    }
 
     footer {
       padding: 28px 0 40px;
       color: var(--muted);
       border-top: 1px solid var(--border);
-      background: linear-gradient(to top, rgba(255,255,255,0.4), transparent);
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.4), transparent);
     }
+
     @media (prefers-color-scheme: dark) {
-      footer { background: linear-gradient(to top, rgba(13,17,23,0.25), transparent); }
+      footer {
+        background: linear-gradient(to top, rgba(13, 17, 23, 0.25), transparent);
+      }
+    }
+
+    /* ---------- Experience (Timeline) ---------- */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      border-left: 2px solid var(--border);
+      padding-left: 24px;
+      margin-left: 12px;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -31px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 1px var(--border);
+    }
+
+    .timeline-date {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .timeline-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 4px 0;
+    }
+
+    .timeline-company {
+      font-size: 16px;
+      color: var(--accent-strong);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    /* ---------- Projects ---------- */
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+
+    .project-desc {
+      flex-grow: 1;
+      margin-bottom: 16px;
+      color: var(--muted);
+    }
+
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .project-links a {
+      color: var(--accent);
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -226,6 +400,8 @@
     <div class="container" style="display:flex; align-items:center; gap:22px;">
       <nav aria-label="Primary">
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
         <a href="#resume">Resume</a>
@@ -244,7 +420,7 @@
         <p class="greeting">Nice to meet you.</p>
         <p class="intro">I’m a student graduating in 2026, passionate about technology, finance, and AI innovation.</p>
         <div class="btns">
-          <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
+          <a class="btn primary" href="Resume_Portfolio.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
           <a class="btn" href="#contact">Contact me</a>
         </div>
       </div>
@@ -254,24 +430,202 @@
       <div class="container card">
         <h2>About</h2>
         <p>
-          I’m Gianluca, with a background in economics and finance. From financial analysis to applying AI in sales and project management, I’ve focused on developing agile, automated systems that enhance collaboration and drive innovation in the financial sector.
+          I am a Business Analyst with a maker mindset, bridging the gap between rigorous financial strategy and
+          creative product development. I do not just analyze data; I build with it. Leveraging Python, AI pipelines,
+          and rapid prototyping, I transform complex market insights into tangible, scalable digital products. From
+          co-founding a TravelTech startup to optimizing industrial workflows, I apply a holistic approach where data
+          guides design and technical execution drives value.
         </p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container card">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <!-- Fineco Bank -->
+          <div class="timeline-item">
+            <span class="timeline-date">05/2025 — 07/2025</span>
+            <h3 class="timeline-title">Wealth Manager | Intern</h3>
+            <div class="timeline-company">Fineco Bank <span
+                style="font-weight:400; color:var(--muted); font-size: 0.9em;">— FinTech</span></div>
+            <p>
+              &bull; Supported portfolio construction for HNW clients, gaining exposure to asset allocation and client
+              relationships.<br>
+              &bull; Streamlined risk profiling, cutting interview time by 20% and boosting accuracy by 50%.
+            </p>
+          </div>
+          <!-- Neptun S.r.l. (CRM) -->
+          <div class="timeline-item">
+            <span class="timeline-date">01/2025 — 06/2025</span>
+            <h3 class="timeline-title">CRM Specialist</h3>
+            <div class="timeline-company">Neptun S.r.l. <span
+                style="font-weight:400; color:var(--muted); font-size: 0.9em;">— Industrial Technology</span></div>
+            <p>
+              &bull; Established and standardized company databases, leveraging AI to expand client records by 300% and
+              improving performance tracking accuracy.<br>
+              &bull; Managed targeted email campaigns and market analysis for Eastern Europe and UAE, driving lead
+              acquisition.
+            </p>
+          </div>
+          <!-- HMY Group -->
+          <div class="timeline-item">
+            <span class="timeline-date">09/2024 — 01/2025</span>
+            <h3 class="timeline-title">Project Manager | Intern</h3>
+            <div class="timeline-company">HMY Group <span
+                style="font-weight:400; color:var(--muted); font-size: 0.9em;">— Design & Engineering</span></div>
+            <p>
+              &bull; Led $1–4M projects for major European retail cooperatives, ensuring alignment with financial
+              objectives.<br>
+              &bull; Executed FP&A activities, managing budgets, cash flow, profitability, and fixed assets across 10
+              clients.<br>
+              &bull; Built an Excel automation tool for Gantt chart creation, optimizing project planning efficiency by
+              5×.
+            </p>
+          </div>
+          <!-- Neptun S.r.l. (FA) -->
+          <div class="timeline-item">
+            <span class="timeline-date">01/2021 — 07/2021</span>
+            <h3 class="timeline-title">Financial Analyst | Intern</h3>
+            <div class="timeline-company">Neptun S.r.l. <span
+                style="font-weight:400; color:var(--muted); font-size: 0.9em;">— Industrial Technology</span></div>
+            <p>
+              &bull; Conducted financial analysis, KPI monitoring, and cash flow reviews; assisted in monthly closes and
+              CFO reporting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="grid">
+          <!-- 1. Unirocket -->
+          <div class="card project-card">
+            <h3 class="project-title">Unirocket</h3>
+            <p class="project-desc">A SaaS platform for student founders to collaborate and build digital products
+              (SaaS, E-commerce). Includes built-in tools to accelerate development and helps find co-founders to
+              increase success odds.</p>
+            <div style="margin-bottom:16px;">
+              <span class="tag" style="font-size:12px; padding:4px 8px;">SaaS</span>
+              <span class="tag" style="font-size:12px; padding:4px 8px;">Co-founding</span>
+            </div>
+            <div class="project-links">
+              <a href="https://www.unirocket.app/" target="_blank">Visit Site &rarr;</a>
+            </div>
+          </div>
+
+          <!-- 2. ArtSync -->
+          <div class="card project-card">
+            <h3 class="project-title">ArtSync</h3>
+            <p class="project-desc">Commission marketplace where users generate AI previews of their ideas before
+              sending requests. Artists receive the AI visualization to decide whether to accept the commission.</p>
+            <div style="margin-bottom:16px;">
+              <span class="tag" style="font-size:12px; padding:4px 8px;">Marketplace</span>
+              <span class="tag" style="font-size:12px; padding:4px 8px;">Generative AI</span>
+            </div>
+            <div class="project-links">
+              <a href="https://artsync-pi.vercel.app/" target="_blank">Visit Site &rarr;</a>
+            </div>
+          </div>
+
+          <!-- 3. Oasix -->
+          <div class="card project-card">
+            <h3 class="project-title">Oasix</h3>
+            <p class="project-desc">AI Travel Planner that generates personalized itineraries based on user interests.
+              The AI analyzes preferences to create a tailored travel plan.</p>
+            <div style="margin-bottom:16px;">
+              <span class="tag" style="font-size:12px; padding:4px 8px;">Travel Tech</span>
+              <span class="tag" style="font-size:12px; padding:4px 8px;">AI</span>
+            </div>
+            <!-- No link provided -->
+          </div>
+
+          <!-- 4. LUCEO -->
+          <div class="card project-card">
+            <h3 class="project-title">LUCEO</h3>
+            <p class="project-desc">Fashion e-commerce platform operating on a dropshipping model. Features a wide
+              catalog through partnerships with various suppliers.</p>
+            <div style="margin-bottom:16px;">
+              <span class="tag" style="font-size:12px; padding:4px 8px;">E-commerce</span>
+              <span class="tag" style="font-size:12px; padding:4px 8px;">Fashion</span>
+            </div>
+            <!-- No link provided -->
+          </div>
+
+          <!-- 5. Insect Incubator -->
+          <div class="card project-card">
+            <h3 class="project-title">Insect Production</h3>
+            <p class="project-desc">Prototype of an industrial incubator for the mass production of larvae flour. An
+              automated solution developed for sustainable protein farming.</p>
+            <div style="margin-bottom:16px;">
+              <span class="tag" style="font-size:12px; padding:4px 8px;">AgriTech</span>
+              <span class="tag" style="font-size:12px; padding:4px 8px;">Prototyping</span>
+            </div>
+            <!-- No link provided -->
+          </div>
+
+          <!-- 6. Oxyvolution -->
+          <div class="card project-card">
+            <h3 class="project-title">Oxyvolution</h3>
+            <p class="project-desc">Sanitization machinery engineered to generate ozone. Designed specifically to
+              neutralize COVID-19 and ensure sterile environments.</p>
+            <div style="margin-bottom:16px;">
+              <span class="tag" style="font-size:12px; padding:4px 8px;">Hardware</span>
+              <span class="tag" style="font-size:12px; padding:4px 8px;">MedTech</span>
+            </div>
+            <!-- No link provided -->
+          </div>
+
+        </div>
       </div>
     </section>
 
     <section id="skills">
       <div class="container">
         <h2>Skills</h2>
-        <div class="grid">
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">R</span>
-          <span class="tag">Tableau</span>
-          <span class="tag">Data Modeling</span>
-          <span class="tag">Forecasting</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Finance Analytics</span>
-          <span class="tag">Dashboards</span>
+
+        <!-- Soft Skills -->
+        <h3 style="font-size: 1.25rem; margin: 0 0 16px 0; color: var(--muted); font-weight: 600;">Mindset & Approach
+        </h3>
+        <div class="grid" style="margin-bottom: 40px;">
+          <span class="tag" title="Why are we building this? Who is it for?">Product Thinking</span>
+          <span class="tag" title="Breaking down messy problems into logical solutions">Complex Problem Solving</span>
+          <span class="tag" title="Ownership and initiative">Entrepreneurial Mindset</span>
+          <span class="tag" title="Validation through numbers">Data-Driven Decision Making</span>
+          <span class="tag" title="Reasoning from fundamental truths">First Principles Thinking</span>
+          <span class="tag" title="Obsessing over the end-user experience">User-Centric Focus</span>
+        </div>
+
+        <!-- Technical Skills -->
+        <h3 style="font-size: 1.25rem; margin: 0 0 24px 0; color: var(--muted); font-weight: 600;">Tools & Execution
+        </h3>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+
+          <!-- Strategy & Data Column -->
+          <div>
+            <h4 style="margin: 0 0 12px 0; font-size: 1rem; color: var(--accent-strong);">Strategy & Data</h4>
+            <div class="grid" style="grid-template-columns: 1fr;">
+              <!-- Stacked for cleaner column view, or use .grid behavior -->
+              <span class="tag">Unit Economics & Financial Analysis</span>
+              <span class="tag">Predictive Modeling & Big Data Analytics</span>
+              <span class="tag">Python & SQL</span>
+            </div>
+          </div>
+
+          <!-- Build & Ship Column -->
+          <div>
+            <h4 style="margin: 0 0 12px 0; font-size: 1rem; color: var(--accent-strong);">Build & Ship</h4>
+            <div class="grid" style="grid-template-columns: 1fr;">
+              <span class="tag">Rapid Prototyping (React)</span>
+              <span class="tag">API Integration & Workflow Automation</span>
+              <span class="tag">Data Visualization & Storytelling</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -280,7 +634,7 @@
       <div class="container card">
         <h2>Resume</h2>
         <p>You can view or download my resume below.</p>
-        <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+        <a class="btn primary" href="Resume_Portfolio.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
       </div>
     </section>
 
@@ -291,7 +645,8 @@
         <div class="contact-links">
           <a href="https://wa.me/393665424379" target="_blank" rel="noopener" aria-label="WhatsApp">💬 WhatsApp</a>
           <a href="https://github.com/GianlucaBave" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
-          <a href="https://www.linkedin.com/in/gianluca-bavelloni/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/gianluca-bavelloni/" target="_blank" rel="noopener"
+            aria-label="LinkedIn">LinkedIn</a>
         </div>
       </div>
     </section>
@@ -302,67 +657,68 @@
   </footer>
 
   <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  (() => {
-    const canvas = document.getElementById('liquid');
-    const ctx = canvas.getContext('2d');
-    let w, h, particles = [], mouse = {x: 0, y: 0};
-    const colors = ['#0ea5e9', '#6366f1', '#10b981'];
+    (() => {
+      const canvas = document.getElementById('liquid');
+      const ctx = canvas.getContext('2d');
+      let w, h, particles = [], mouse = { x: 0, y: 0 };
+      const colors = ['#0ea5e9', '#6366f1', '#10b981'];
 
-    function resize() {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    for (let i = 0; i < 20; i++) {
-      particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        r: 80 + Math.random() * 80,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        color: colors[i % colors.length]
-      });
-    }
-
-    document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      for (const p of particles) {
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const force = Math.max(0, 200 - dist) * 0.003;
-        p.vx += (dx / dist) * force;
-        p.vy += (dy / dist) * force;
-
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < -200) p.x = w + 200;
-        if (p.x > w + 200) p.x = -200;
-        if (p.y < -200) p.y = h + 200;
-        if (p.y > h + 200) p.y = -200;
-
-        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
-        g.addColorStop(0, p.color + 'cc');
-        g.addColorStop(1, p.color + '00');
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-
-        p.vx *= 0.96;
-        p.vy *= 0.96;
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
       }
-      requestAnimationFrame(draw);
-    }
-    draw();
-  })();
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 20; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: 80 + Math.random() * 80,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          color: colors[i % colors.length]
+        });
+      }
+
+      document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (const p of particles) {
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const force = Math.max(0, 200 - dist) * 0.003;
+          p.vx += (dx / dist) * force;
+          p.vy += (dy / dist) * force;
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < -200) p.x = w + 200;
+          if (p.x > w + 200) p.x = -200;
+          if (p.y < -200) p.y = h + 200;
+          if (p.y > h + 200) p.y = -200;
+
+          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+          g.addColorStop(0, p.color + 'cc');
+          g.addColorStop(1, p.color + '00');
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+
+          p.vx *= 0.96;
+          p.vy *= 0.96;
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
   </script>
 </body>
+
 </html>
