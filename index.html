@@ -412,10 +412,80 @@
       display: grid;
       place-items: center;
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: btnPulse 3s infinite;
+      position: relative;
     }
 
     .chat-btn:hover {
       transform: scale(1.1);
+      animation: none;
+    }
+
+    @keyframes btnPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+        transform: scale(1);
+      }
+
+      50% {
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+        transform: scale(1.05);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+        transform: scale(1);
+      }
+    }
+
+    .chat-tooltip {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      background: white;
+      color: #1a1a1a;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(10px) translateX(-10px);
+      animation: tooltipFadeIn 0.8s ease-out 1s forwards;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .chat-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      right: 24px;
+      width: 12px;
+      height: 12px;
+      background: white;
+      transform: rotate(45deg);
+      border-bottom-right-radius: 2px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .chat-tooltip {
+        background: #1f2937;
+        color: white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .chat-tooltip::after {
+        background: #1f2937;
+      }
+    }
+
+    @keyframes tooltipFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0) translateX(0);
+      }
     }
 
     .chat-btn svg {
@@ -890,6 +960,7 @@
       </form>
     </div>
 
+    <div class="chat-tooltip">Chatta con il mio Digital Twin! 🤖</div>
     <button class="chat-btn" id="chatToggle" aria-label="Open Chat">
       <svg viewBox="0 0 24 24">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
