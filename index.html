@@ -390,7 +390,219 @@
     .project-links a:hover {
       text-decoration: underline;
     }
+
+    /* ---------- AI Chat ---------- */
+    .chat-widget {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      font-family: inherit;
+    }
+
+    .chat-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .chat-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .chat-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .chat-window {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: min(600px, 90vw);
+      height: min(600px, 80vh);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -40%) scale(0.95);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1001;
+      /* Above toggle button */
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .chat-window {
+        background: #0d1117;
+      }
+    }
+
+    .chat-window.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .chat-header {
+      padding: 16px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      color: white;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .chat-close {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .chat-messages {
+      flex-grow: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .message.user {
+      align-self: flex-end;
+      background: var(--accent);
+      color: white;
+      border-bottom-right-radius: 2px;
+    }
+
+    .message.bot {
+      align-self: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-bottom-left-radius: 2px;
+    }
+
+    .message.error {
+      align-self: center;
+      background: #ef4444;
+      color: white;
+      font-size: 12px;
+    }
+
+    .chat-input-area {
+      padding: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+      background: var(--bg);
+    }
+
+    .chat-input {
+      flex-grow: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    .chat-input:focus {
+      outline: 2px solid var(--accent);
+      border-color: transparent;
+    }
+
+    .chat-send {
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .chat-send:hover {
+      background: var(--accent-strong);
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      align-self: flex-start;
+      width: fit-content;
+      border-bottom-left-radius: 2px;
+    }
+
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--muted);
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out both;
+    }
+
+    .typing-dot:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0);
+      }
+
+      40% {
+        transform: scale(1);
+      }
+    }
   </style>
+
 </head>
 
 <body>
@@ -438,6 +650,8 @@
         </p>
       </div>
     </section>
+
+
 
     <section id="experience">
       <div class="container card">
@@ -656,68 +870,114 @@
     <div class="container">© <span id="year"></span> — Built by Gianluca</div>
   </footer>
 
+
+  <!-- Chat Widget -->
+  <div class="chat-widget">
+    <div class="chat-window d-none" id="chatWindow" aria-hidden="true">
+      <div class="chat-header">
+        <h3>Digital Gianluca</h3>
+        <button class="chat-close" id="chatClose" aria-label="Close Chat">✕</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+          Hi! I'm Gianluca's digital version. I'm here to see if I'm the right fit for your team. What role are you
+          hiring for?
+        </div>
+      </div>
+      <form class="chat-input-area" id="chatForm">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." autocomplete="off">
+        <button type="submit" class="chat-send">Send</button>
+      </form>
+    </div>
+
+    <button class="chat-btn" id="chatToggle" aria-label="Open Chat">
+      <svg viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+  </div>
+
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const chatWindow = document.getElementById('chatWindow');
+    const chatToggle = document.getElementById('chatToggle');
+    const chatClose = document.getElementById('chatClose');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
 
-    (() => {
-      const canvas = document.getElementById('liquid');
-      const ctx = canvas.getContext('2d');
-      let w, h, particles = [], mouse = { x: 0, y: 0 };
-      const colors = ['#0ea5e9', '#6366f1', '#10b981'];
-
-      function resize() {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
+    function toggleChat() {
+      const isOpen = chatWindow.classList.contains('open');
+      if (isOpen) {
+        chatWindow.classList.remove('open');
+        chatWindow.setAttribute('aria-hidden', 'true');
+      } else {
+        chatWindow.classList.add('open');
+        chatWindow.setAttribute('aria-hidden', 'false');
+        setTimeout(() => chatInput.focus(), 100);
       }
-      window.addEventListener('resize', resize);
-      resize();
+    }
 
-      for (let i = 0; i < 20; i++) {
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          r: 80 + Math.random() * 80,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          color: colors[i % colors.length]
+    chatToggle.addEventListener('click', toggleChat);
+    chatClose.addEventListener('click', toggleChat);
+
+    function addMessage(text, sender) {
+      const div = document.createElement('div');
+      div.className = `message ${sender}`;
+      div.textContent = text;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addTypingIndicator() {
+      const div = document.createElement('div');
+      div.className = 'typing-indicator';
+      div.id = 'typingIndicator';
+      div.innerHTML = `
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      `;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return div;
+    }
+
+    chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const message = chatInput.value.trim();
+      if (!message) return;
+
+      // Add user message
+      addMessage(message, 'user');
+      chatInput.value = '';
+
+      // Add typing indicator
+      const typing = addTypingIndicator();
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
         });
-      }
 
-      document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        const data = await res.json();
 
-      function draw() {
-        ctx.clearRect(0, 0, w, h);
-        for (const p of particles) {
-          const dx = mouse.x - p.x;
-          const dy = mouse.y - p.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const force = Math.max(0, 200 - dist) * 0.003;
-          p.vx += (dx / dist) * force;
-          p.vy += (dy / dist) * force;
+        // Remove typing indicator
+        if (typing) typing.remove();
 
-          p.x += p.vx;
-          p.y += p.vy;
-
-          if (p.x < -200) p.x = w + 200;
-          if (p.x > w + 200) p.x = -200;
-          if (p.y < -200) p.y = h + 200;
-          if (p.y > h + 200) p.y = -200;
-
-          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
-          g.addColorStop(0, p.color + 'cc');
-          g.addColorStop(1, p.color + '00');
-          ctx.fillStyle = g;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fill();
-
-          p.vx *= 0.96;
-          p.vy *= 0.96;
+        if (data.error) {
+          addMessage("Sorry, I'm having trouble connecting to the brain.", 'error');
+          console.error(data.error);
+        } else {
+          addMessage(data.reply, 'bot');
         }
-        requestAnimationFrame(draw);
+
+      } catch (err) {
+        if (typing) typing.remove();
+        addMessage("Error: Could not connect to AI server. Is 'node server.js' running?", 'error');
       }
-      draw();
-    })();
+    });
   </script>
 </body>
 
