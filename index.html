@@ -960,7 +960,7 @@
       </form>
     </div>
 
-    <div class="chat-tooltip">Chatta con il mio Digital Twin! 🤖</div>
+    <div class="chat-tooltip">Chat with my Digital Twin! 🤖</div>
     <button class="chat-btn" id="chatToggle" aria-label="Open Chat">
       <svg viewBox="0 0 24 24">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -994,7 +994,26 @@
     function addMessage(text, sender) {
       const div = document.createElement('div');
       div.className = `message ${sender}`;
-      div.textContent = text;
+
+      if (sender === 'bot') {
+        // Simple Markdown Parsing
+        // 1. Escape HTML (prevent injection)
+        let formatted = text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+
+        // 2. Bold (**text**)
+        formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+        // 3. Newlines -> <br>
+        formatted = formatted.replace(/\n/g, '<br>');
+
+        div.innerHTML = formatted;
+      } else {
+        div.textContent = text;
+      }
+
       chatMessages.appendChild(div);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
