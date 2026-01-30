@@ -398,6 +398,39 @@
       right: 30px;
       z-index: 1000;
       font-family: inherit;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .chat-widget.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .chat-dismiss {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 24px;
+      height: 24px;
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 14px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1002;
+    }
+
+    .chat-dismiss:hover {
+      background: #dc2626;
+      transform: scale(1.1);
     }
 
     /* Contact Grid */
@@ -1051,6 +1084,7 @@
     </div>
 
     <div class="chat-tooltip">Chat with my Digital Twin! 🤖</div>
+    <button class="chat-dismiss" id="chatDismissIcon" aria-label="Dismiss Chat Widget">✕</button>
     <button class="chat-btn" id="chatToggle" aria-label="Open Chat">
       <svg viewBox="0 0 24 24">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -1061,10 +1095,25 @@
   <script>
     const chatWindow = document.getElementById('chatWindow');
     const chatToggle = document.getElementById('chatToggle');
+    const chatDismissIcon = document.getElementById('chatDismissIcon');
     const chatClose = document.getElementById('chatClose');
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
+    const chatWidget = document.querySelector('.chat-widget');
+
+    // Show chat widget after 5 seconds
+    setTimeout(() => {
+      chatWidget.classList.add('visible');
+    }, 5000);
+
+    // Dismiss chat widget
+    chatDismissIcon.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent toggling chat
+      chatWidget.classList.remove('visible');
+      // Optional: Store preference so it doesn't show again in this session
+      // sessionStorage.setItem('chatDismissed', 'true');
+    });
 
     function toggleChat() {
       const isOpen = chatWindow.classList.contains('open');
