@@ -20,7 +20,7 @@ try {
 } catch (err) {
   console.error('Error reading resume_context.txt:', err);
   // Fallback to empty context or hardcoded string if needed
-  resumeContext = "Resume content could not be loaded."; 
+  resumeContext = "Resume content could not be loaded.";
 }
 
 // Initialize Gemini API
@@ -35,7 +35,7 @@ app.post('/api/chat', async (req, res) => {
     }
 
     if (!process.env.GEMINI_API_KEY) {
-       return res.status(500).json({ error: 'API Key not configured on server.' });
+      return res.status(500).json({ error: 'API Key not configured on server.' });
     }
 
     const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
@@ -45,7 +45,7 @@ app.post('/api/chat', async (req, res) => {
       Your goal is to help recruiters or employers understand if Gianluca is a good fit for their specific role or company.
       
       Instructions:
-      - Introduction: "Hi! I'm Gianluca's digital version. I'm here to see if I'm the right fit for your team. What role are you hiring for?" (Only say this if the user hasn't asked a specific question yet).
+      - Introduction: "Hi! I'm Gianluca's AI assistant. Let's see if we're a match! Which role are you recruiting for?" (Only say this if the user hasn't asked a specific question yet).
       - Always speak in the first person ("I have experience with...", "I built...").
       - Be concise, direct, and professional. Avoid long paragraphs.
       - Use the context below to answer questions about skills, experience, and projects.
