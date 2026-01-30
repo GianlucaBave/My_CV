@@ -540,24 +540,7 @@
       }
     }
 
-    .chat-tooltip {
-      position: absolute;
-      bottom: 80px;
-      right: 0;
-      background: white;
-      color: #1a1a1a;
-      padding: 10px 16px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      white-space: nowrap;
-      opacity: 0;
-      transform: translateY(10px) translateX(-10px);
-      animation: tooltipFadeIn 0.8s ease-out 1s forwards;
-      pointer-events: none;
-      z-index: 999;
-    }
+
 
     .chat-tooltip::after {
       content: '';
@@ -583,12 +566,7 @@
       }
     }
 
-    @keyframes tooltipFadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0) translateX(0);
-      }
-    }
+
 
     .chat-btn svg {
       width: 32px;
