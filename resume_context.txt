@@ -28,6 +28,7 @@ Neptun S.r.l. — Financial Analyst | Intern (01/2021 — 07/2021)
 PROJECTS
 
 North
+Link: https://seminar-challenge.vercel.app
 AI-powered tool that analyzes resumes against job descriptions to provide compatibility scores and actionable improvements. Developed for a university challenge.
 Tags: AI, Career Tech
 
