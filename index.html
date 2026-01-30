@@ -404,13 +404,7 @@
       position: relative;
     }
 
-    /* Initial hidden state for tooltip and dismiss button */
-    .chat-tooltip {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
+    /* Tooltip & Dismiss Button */
     .chat-tooltip {
       position: absolute;
       bottom: 80px;
@@ -423,12 +417,17 @@
       font-weight: 600;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       white-space: nowrap;
+
+      /* Hidden State */
+      opacity: 0;
+      pointer-events: none;
       transform: translateY(10px) translateX(-10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
       z-index: 999;
     }
 
-    /* State when visible */
-    .chat-widget.show-tooltip .chat-tooltip {
+    /* Visible State */
+    .chat-tooltip.visible {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0) translateX(-10px);
@@ -1131,16 +1130,19 @@
     const chatInput = document.getElementById('chatInput');
     const chatMessages = document.getElementById('chatMessages');
     const chatWidget = document.querySelector('.chat-widget');
+    const chatTooltip = document.querySelector('.chat-tooltip');
 
     // Show chat tooltip after 5 seconds
     setTimeout(() => {
-      chatWidget.classList.add('show-tooltip');
+      console.log('Showing tooltip now');
+      chatTooltip.classList.add('visible');
     }, 5000);
 
     // Dismiss chat tooltip
     chatDismissIcon.addEventListener('click', (e) => {
       e.stopPropagation(); // Prevent toggling chat
-      chatWidget.classList.remove('show-tooltip');
+      console.log('Dismissing tooltip');
+      chatTooltip.classList.remove('visible');
     });
 
     function toggleChat() {
