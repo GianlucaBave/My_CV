@@ -27,6 +27,10 @@ Neptun S.r.l. — Financial Analyst | Intern (01/2021 — 07/2021)
 
 PROJECTS
 
+North
+AI-powered tool that analyzes resumes against job descriptions to provide compatibility scores and actionable improvements. Developed for a university challenge.
+Tags: AI, Career Tech
+
 Unirocket
 SaaS platform for student founders to collaborate and build digital products. Includes tools to accelerate development and find co-founders.
 Tags: SaaS, Co-founding
