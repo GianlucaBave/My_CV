@@ -29,7 +29,7 @@ PROJECTS
 
 North
 Link: https://north-cv-screening.vercel.app/
-AI-powered tool that analyzes resumes against job descriptions to provide compatibility scores and actionable improvements. Developed for a university challenge.
+AI-powered tool that analyzes resumes against job descriptions to provide compatibility scores and actionable improvements. Winner of a 1h university challenge.
 Tags: AI, Career Tech
 
 Unirocket
