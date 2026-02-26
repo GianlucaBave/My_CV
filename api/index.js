@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const app = express();
 
@@ -23,9 +22,6 @@ try {
   resumeContext = "Resume content could not be loaded.";
 }
 
-// Initialize Gemini API
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-
 app.post('/api/chat', async (req, res) => {
   try {
     const { message } = req.body;
@@ -34,11 +30,9 @@ app.post('/api/chat', async (req, res) => {
       return res.status(400).json({ error: 'Message is required' });
     }
 
-    if (!process.env.GEMINI_API_KEY) {
-      return res.status(500).json({ error: 'API Key not configured on server.' });
+    if (!process.env.OPENROUTER_API_KEY) {
+      return res.status(500).json({ error: 'OPENROUTER_API_KEY not configured on server.' });
     }
-
-    const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
 
     const prompt = `
       You are the "Digital Version" of Gianluca Bavelloni.
@@ -54,13 +48,30 @@ app.post('/api/chat', async (req, res) => {
       
       Context:
       ${resumeContext}
-      
-      User Question: ${message}
     `;
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
+    const openrouterResponse = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "model": "openrouter/auto",
+        "messages": [
+          { "role": "system", "content": prompt },
+          { "role": "user", "content": message }
+        ]
+      })
+    });
+
+    const data = await openrouterResponse.json();
+
+    if (!openrouterResponse.ok) {
+      throw new Error(`OpenRouter API error: ${data.error?.message || openrouterResponse.statusText}`);
+    }
+
+    const text = data.choices[0].message.content;
 
     res.json({ reply: text });
 
