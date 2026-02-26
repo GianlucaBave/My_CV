@@ -1,63 +1,40 @@
-Gianluca Bavelloni
-MSc in Business Analytics at ESADE
-Location: Milan, Italy / Barcelona, Spain
-Contact: gianluca.bavelloni@gmail.com
-Links: LinkedIn, GitHub
+GIANLUCA BAVELLONI
+MSc in Business Analytics — ESADE Business School
+Milan, Italy / Barcelona, Spain
+gianluca.bavelloni@gmail.com | LinkedIn | GitHub
 
 SUMMARY
-I am a Business Analyst with a maker mindset, bridging the gap between rigorous financial strategy and creative product development. I leverage Python, AI pipelines, and rapid prototyping to transform complex market insights into valid digital products.
+Business Analytics student with a background at the intersection of finance, data, and technology. I combine quantitative skills — predictive modeling, SQL, Python — with hands-on experience in FP&A, risk management, and project execution across fintech and consulting contexts. I am drawn to environments where data-driven decisions have high financial impact, particularly in risk, transactions, and technology transformation.
 
 EXPERIENCE
+Global Payments — Risk Analyst | Graduate Project (02/2026 — 06/2026 | Barcelona)
+Developing a predictive ML model for 470k+ merchants to automate fraud and default detection, replacing static scoring with real-time alerting architectures. Engineering transactional variables including chargeback ratios and insolvency indicators to identify high-risk sector patterns.
 
-Fineco Bank — Wealth Manager | Intern (05/2025 — 07/2025)
-- Supported portfolio construction for HNW clients, gaining exposure to asset allocation and client relationships.
-- Streamlined risk profiling, cutting interview time by 20% and boosting accuracy by 50%.
+Fineco Bank — Private Banking | Intern (05/2025 — 07/2025 | Milan)
+Supported portfolio construction for HNW clients, gaining exposure to asset allocation and client relationships. Streamlined risk profiling, cutting interview time by 20% and improving accuracy by 50%.
 
-Neptun S.r.l. — CRM Specialist (01/2025 — 06/2025)
-- Established and standardized company databases, leveraging AI to expand client records by 300%.
-- Managed targeted email campaigns and market analysis for Eastern Europe and UAE, driving lead acquisition.
+Neptun S.r.l. — Business Operations Associate (01/2021 — 05/2025 | Milan)
+Standardized company databases leveraging AI to expand client records by 300%, improving performance tracking and driving lead acquisition in Eastern Europe and UAE. Conducted financial analysis and KPI monitoring, supervising cash flow reviews and assisting in monthly closes and CFO reporting.
 
-HMY Group — Project Manager | Intern (09/2024 — 01/2025)
-- Led $1–4M projects for major European retail cooperatives.
-- Executed FP&A activities, managing budgets, cash flow, profitability, and fixed assets across 10 clients.
-- Built an Excel automation tool for Gantt chart creation, optimizing project planning efficiency by 5×.
-
-Neptun S.r.l. — Financial Analyst | Intern (01/2021 — 07/2021)
-- Conducted financial analysis, KPI monitoring, and cash flow reviews; assisted in monthly closes and CFO reporting.
+HMY Group — Project Manager | Intern (09/2024 — 01/2025 | Milan)
+Led $1–4M projects for major European retail cooperatives, ensuring alignment with financial objectives. Executed FP&A activities managing budgets, cash flow, profitability and fixed assets across 10 clients. Built an Excel automation tool for Gantt chart creation, optimizing project planning efficiency by 500%.
 
 PROJECTS
-
-North
-Link: https://north-cv-screening.vercel.app/
-AI-powered tool that analyzes resumes against job descriptions to provide compatibility scores and actionable improvements. Winner of a 1h university challenge.
-Tags: AI, Career Tech
-
-Unirocket
-SaaS platform for student founders to collaborate and build digital products. Includes tools to accelerate development and find co-founders.
-Tags: SaaS, Co-founding
-
-ArtSync
-Commission marketplace where users generate AI previews of ideas before sending requests. Artists receive AI visualization to decide acceptance.
-Tags: Marketplace, Generative AI
-
-Oasix
-AI Travel Planner generating personalized itineraries based on user interests.
-Tags: Travel Tech, AI
-
-LUCEO
-Fashion e-commerce platform operating on a dropshipping model.
-Tags: E-commerce, Fashion
-
-Insect Production
-Prototype of an industrial incubator for mass production of larvae flour (sustainable protein).
-Tags: AgriTech, Prototyping
-
-Oxyvolution
-Sanitization machinery engineered to generate ozone to neutralize COVID-19.
-Tags: Hardware, MedTech
+Oasix — AI Travel Planner for B2B2C, secured VentureLab and Microsoft for Startups support ($5K+ in tools). (Travel Tech, AI)
+Unirocket — SaaS platform for student founders to collaborate and build digital products. (SaaS, Product)
+ArtSync — Commission marketplace using generative AI to preview requests before artist acceptance. (Marketplace, Generative AI)
+LUCEO — Fashion e-commerce on a dropshipping model. (E-commerce)
+Insect Production — Industrial incubator prototype for larvae flour mass production. (AgriTech, Hardware)
+Oxyvolution — Ozone-based sanitization machinery engineered to neutralize COVID-19. (MedTech, Hardware)
 
 SKILLS
+Strategy & Finance: Financial Analysis, FP&A, Risk Management, Predictive Modeling, Unit Economics, Forecasting
+Data & Tech: Python, SQL, RStudio, Power BI, Tableau, Data Engineering, Cloud Deployment, n8n, Node.js
+Soft Skills: Complex Problem Solving, Data-Driven Decision Making, Project Management, Teamwork across international contexts
 
-Mindset: Product Thinking, Complex Problem Solving, Entrepreneurial Mindset, Data-Driven Decision Making, First Principles Thinking, User-Centric Focus
-Strategy & Data: Unit Economics, Financial Analysis, Predictive Modeling, Python, SQL
-Build & Ship: Rapid Prototyping (React/JS), API Integration, Data Visualization
+EDUCATION
+ESADE Business & Law School — MSc in Business Analytics (08/2025 — 06/2026)
+Machine Learning, Cloud Computing, Big Data, AI-driven strategic decision-making
+
+USI — Università della Svizzera Italiana — BA in Economics, Major in Finance (09/2021 — 09/2024)
+Final Thesis 9/10 · DCF Valuation 9.5/10 · Quantitative Methods 8.5/10 · Advanced Statistics 9.5/10
